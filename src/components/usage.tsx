@@ -35,7 +35,7 @@ $ nitrokit update-dependencies\n`}</Code>
           </div>
           <div>
             <div className="text-2xl">Interactive Menu</div>
-            <Code className="h-86">{`🚀 NitroKit Terminal Tool v0.1.2\n
+            <Code className="h-86">{`🚀 Nitrokit Terminal Tool v0.1.2\n
 Available commands:\n
 1. release-notes\n
 2. create-release\n

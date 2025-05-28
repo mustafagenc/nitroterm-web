@@ -1,4 +1,5 @@
 import Code from "./code";
+import DownloadButton from "./download-button";
 
 export const Installation = () => {
   return (
@@ -19,8 +20,11 @@ export const Installation = () => {
             🛠️ Installation
           </h2>
           <p className=" text-center text-lg mb-8">
-            Get started with NitroKit in seconds
+            Get started with Nitrokit in seconds
           </p>
+          <div className="flex justify-center my-20">
+            <DownloadButton className="text-lg" />
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-20 ">
             <div>
               <div className="text-2xl font-bold">
@@ -31,7 +35,7 @@ export const Installation = () => {
             <div>
               <div className="text-2xl font-bold">Manual Installation</div>
               <Code className="h-50">{`# Download latest release\n
-wget https://github.com/mustafagenc/nitroterm/releases\n
+wget https://github.com/mustafagenc/nitrokit-terminal/\nreleases/download/v0.1.0-alpha.1/nitrokit-linux-x86_64\n
 chmod +x nitroterm\n
 sudo mv nitroterm /usr/local/bin/`}</Code>
             </div>
