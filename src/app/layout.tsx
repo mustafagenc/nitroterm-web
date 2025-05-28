@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Lexend, Fira_Code } from "next/font/google";
 import { Toaster } from "sonner";
 import { generateSiteMetadata } from "@lib/helpers";
+import { Analytics } from "@vercel/analytics/next";
 
 import "@radix-ui/themes/styles.css";
 import "../styles/globals.css";
@@ -47,6 +48,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
