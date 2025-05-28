@@ -1,7 +1,21 @@
+"use client";
+
+import { useVersion } from "@/hooks/useVersion";
 import Code from "./code";
-import DownloadButton from "./download-button";
+import ColorfulDownloadButton from "./colorful-download-button";
 
 export const Installation = () => {
+
+  const { version, loading, error } = useVersion();
+
+  if (loading || error) {
+    return (
+      <div className="text-center text-white">
+        <p className="text-lg animate-pulse">Loading usage...</p>
+      </div>
+    );
+  }  
+
   return (
     <>
       <div
@@ -20,10 +34,14 @@ export const Installation = () => {
             🛠️ Installation
           </h2>
           <p className=" text-center text-lg mb-8">
-            Get started with Nitrokit in seconds
+            Get started with{" "}
+            <span className="text-lg text-shadow-md font-[family-name:var(--font-lexend)]">
+              Nitroterm
+            </span>{" "}
+            in seconds
           </p>
           <div className="flex justify-center my-20">
-            <DownloadButton className="text-lg" />
+            <ColorfulDownloadButton />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-20 ">
             <div>
@@ -35,7 +53,7 @@ export const Installation = () => {
             <div>
               <div className="text-2xl font-bold">Manual Installation</div>
               <Code className="h-50">{`# Download latest release\n
-wget https://github.com/mustafagenc/nitrokit-terminal/\nreleases/download/v0.1.0-alpha.1/nitrokit-linux-x86_64\n
+wget https://github.com/mustafagenc/nitroterm/\nreleases/download/v${version}/nitrokit-linux-x86_64\n
 chmod +x nitroterm\n
 sudo mv nitroterm /usr/local/bin/`}</Code>
             </div>

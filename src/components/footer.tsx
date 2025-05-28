@@ -1,6 +1,21 @@
+"use client";
+
 import { CONTACT_URL, GITHUB_URL } from "@/lib/constants";
+import { Logo } from "./logo";
+import { useGitHubStats } from "@/hooks/useGithubStats";
 
 export const Footer = () => {
+
+  const { stats, loading, error } = useGitHubStats(GITHUB_URL);
+
+  if (loading || error) {
+    return (
+      <div className="text-center text-white">
+        <p className="text-lg animate-pulse">Loading usage...</p>
+      </div>
+    );
+  }  
+
     return (
       <>
         <div
@@ -16,15 +31,8 @@ export const Footer = () => {
               <div className="grid md:grid-cols-4 gap-8">
                 {/* Brand */}
                 <div className="md:col-span-2">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold">N</span>
-                    </div>
-                    <span className="text-white text-xl font-bold text-shadow-sm font-[family-name:var(--font-lexend)]">
-                      Nitrokit Terminal
-                    </span>
-                  </div>
-                  <p className="text-slate-100 mb-4 max-w-md font-semibold text-shadow-sm">
+                  <Logo />
+                  <p className="text-slate-100 mb-4 max-w-md font-semibold text-shadow-sm mt-4">
                     Powerful terminal application for comprehensive project
                     management, written in Rust with modern features and
                     cross-platform support.
@@ -137,6 +145,9 @@ export const Footer = () => {
                   >
                     Mustafa Genc
                   </a>
+                </p>
+                <p className="text-sm transition-colors mt-2">
+                  This project is licensed under the {stats?.license}
                 </p>
               </div>
             </div>

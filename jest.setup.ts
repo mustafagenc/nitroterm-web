@@ -80,7 +80,9 @@ class MockHeaders {
     this._headers.set(name.toLowerCase(), value);
   }
 
-  forEach(callback: (value: string, key: string, parent: Headers) => void): void {
+  forEach(
+    callback: (value: string, key: string, parent: Headers) => void
+  ): void {
     this._headers.forEach((value, key) => callback(value, key, this as any));
   }
 
@@ -114,26 +116,26 @@ class MockResponse {
   redirected: boolean = false;
   status: number;
   statusText: string;
-  type: ResponseType = 'basic';
-  url: string = '';
+  type: ResponseType = "basic";
+  url: string = "";
 
   constructor(body?: BodyInit | null, init: ResponseInit = {}) {
     this.body = body as ReadableStream | null;
     this.status = init.status || 200;
-    this.statusText = init.statusText || 'OK';
+    this.statusText = init.statusText || "OK";
     this.ok = this.status >= 200 && this.status < 300;
     this.headers = new MockHeaders(init.headers) as any;
   }
 
   static error(): Response {
-    return new MockResponse(null, { status: 0, statusText: '' }) as any;
+    return new MockResponse(null, { status: 0, statusText: "" }) as any;
   }
 
   static json(data: unknown, init: ResponseInit = {}): Response {
     return new MockResponse(JSON.stringify(data), {
       ...init,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         ...init.headers,
       },
     }) as any;
@@ -163,7 +165,7 @@ class MockResponse {
   }
 
   async text(): Promise<string> {
-    return '';
+    return "";
   }
 
   clone(): Response {
@@ -178,3 +180,47 @@ class MockResponse {
 // Set global mocks
 global.Headers = MockHeaders as any;
 global.Response = MockResponse as any;
+
+// Mock Web APIs for API routes
+Object.defineProperty(global, "Request", {
+  value: class Request {
+    constructor(public url: string, public options: any = {}) {}
+  },
+  writable: true,
+});
+
+Object.defineProperty(global, "Response", {
+  value: class Response {
+    constructor(public body: any, public options: any = {}) {}
+    static json(data: any, init?: any) {
+      return new Response(JSON.stringify(data), init);
+    }
+  },
+  writable: true,
+});
+
+Object.defineProperty(global, "Headers", {
+  value: class Headers {
+    private headers: Record<string, string> = {};
+
+    constructor(init?: Record<string, string>) {
+      if (init) {
+        Object.assign(this.headers, init);
+      }
+    }
+
+    get(name: string) {
+      return this.headers[name.toLowerCase()];
+    }
+
+    set(name: string, value: string) {
+      this.headers[name.toLowerCase()] = value;
+    }
+  },
+  writable: true,
+});
+
+// Mock fetch
+if (typeof global.fetch === "undefined") {
+  global.fetch = jest.fn();
+}

@@ -28,8 +28,8 @@ async function generateSiteMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(baseUrl),
-    generator: "Nitrokit Terminal",
-    applicationName: "Nitrokit Terminal",
+    generator: "Nitrokit",
+    applicationName: "Nitroterm",
     referrer: "origin-when-cross-origin",
     authors: [
       {
@@ -41,7 +41,7 @@ async function generateSiteMetadata(): Promise<Metadata> {
     publisher: "Mustafa Genç",
     appleWebApp: {
       statusBarStyle: "black-translucent",
-      title: "Nitrokit Terminal",
+      title: "Nitroterm",
       capable: true,
       startupImage: [
         {
@@ -52,8 +52,8 @@ async function generateSiteMetadata(): Promise<Metadata> {
       ],
     },
     title: {
-      default: "Nitrokit Terminal",
-      template: `%s - Nitrokit Terminal`,
+      default: "Nitroterm",
+      template: `%s - Nitroterm`,
     },
     description: "Powerful terminal application written in Rust",
     icons: {
@@ -61,16 +61,16 @@ async function generateSiteMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Nitrokit Terminal",
+      title: "Nitroterm",
       description: "Powerful terminal application written in Rust",
       creator: "@mustafagenc",
       ...imageData,
     },
     openGraph: {
-      title: "Nitrokit Terminal",
+      title: "Nitroterm",
       description: "Powerful terminal application written in Rust",
       url: baseUrl,
-      siteName: "Nitrokit Terminal",
+      siteName: "Nitroterm",
       ...imageData,
     },
     verification: {
