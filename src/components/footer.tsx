@@ -3,6 +3,8 @@
 import { CONTACT_URL, GITHUB_URL } from "@/lib/constants";
 import { Logo } from "./logo";
 import { useGitHubStats } from "@/hooks/useGithubStats";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { TbExternalLinkOff } from "react-icons/tb";
 
 export const Footer = () => {
 
@@ -62,39 +64,41 @@ export const Footer = () => {
                     <li>
                       <a
                         href="#features"
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <MdOutlineKeyboardArrowRight />
                         Features
                       </a>
                     </li>
                     <li>
                       <a
                         href="#installation"
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <MdOutlineKeyboardArrowRight />
                         Installation
                       </a>
                     </li>
                     <li>
                       <a
                         href="#usage"
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <MdOutlineKeyboardArrowRight />
                         Usage
                       </a>
                     </li>
                     <li>
                       <a
                         href={`${GITHUB_URL}/releases`}
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <TbExternalLinkOff />
                         Releases
                       </a>
                     </li>
                   </ul>
                 </div>
-
-                {/* Resources */}
                 <div>
                   <h3 className="text-white font-semibold mb-4 text-shadow-sm underline underline-offset-8">
                     Resources
@@ -103,32 +107,36 @@ export const Footer = () => {
                     <li>
                       <a
                         href={GITHUB_URL}
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <TbExternalLinkOff />
                         GitHub
                       </a>
                     </li>
                     <li>
                       <a
                         href={`${GITHUB_URL}/issues`}
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <TbExternalLinkOff />
                         Issues
                       </a>
                     </li>
                     <li>
                       <a
                         href={`${GITHUB_URL}/discussions`}
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <TbExternalLinkOff />
                         Discussions
                       </a>
                     </li>
                     <li>
                       <a
                         href={CONTACT_URL}
-                        className="hover:text-white transition-colors text-shadow-sm"
+                        className="hover:text-white transition-colors text-shadow-sm flex items-center gap-3 hover:underline hover:underline-offset-3"
                       >
+                        <TbExternalLinkOff />
                         Contact
                       </a>
                     </li>

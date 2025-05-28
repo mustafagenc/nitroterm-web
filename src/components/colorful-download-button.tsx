@@ -63,25 +63,25 @@ export default function ColorfulDownloadButton({
     windows: {
       name: "Windows",
       icon: <FaWindows className="w-5 h-5" />,
-      downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/${version}/nitroterm-windows-x86_64.exe`,
+      downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/v${version}/nitroterm-windows-x86_64.exe`,
       fileName: "nitroterm-windows.exe",
     },
     macos: {
       name: "macOS",
       icon: <FaApple className="w-5 h-5" />,
-      downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/${version}/nitroterm-macos-arm64`,
+      downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/v${version}/nitroterm-macos-arm64`,
       fileName: "nitroterm-macos-arm64",
       subVersions: [
         {
           name: "macOS (Apple Silicon)",
           icon: <FaApple className="w-4 h-4" />,
-          downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/${version}/nitroterm-macos-arm64`,
+          downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/v${version}/nitroterm-macos-arm64`,
           fileName: "nitroterm-macos-arm64",
         },
         {
           name: "macOS (Intel)",
           icon: <FaApple className="w-4 h-4" />,
-          downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/${version}/nitroterm-linux-x86_64`,
+          downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/v${version}/nitroterm-linux-x86_64`,
           fileName: "nitroterm-macos-x64",
         },
       ],
@@ -89,7 +89,7 @@ export default function ColorfulDownloadButton({
     linux: {
       name: "Linux",
       icon: <FaLinux className="w-5 h-5" />,
-      downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/${version}/nitrokit-linux-x86_64`,
+      downloadUrl: `https://github.com/mustafagenc/nitroterm/releases/download/v${version}/nitrokit-linux-x86_64`,
       fileName: "nitroterm-linux",
     },
   };

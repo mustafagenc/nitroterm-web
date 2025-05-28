@@ -52,7 +52,7 @@ async function generateSiteMetadata(): Promise<Metadata> {
       ],
     },
     title: {
-      default: "Nitroterm",
+      default: "Nitroterm  - Powerful terminal application written in Rust",
       template: `%s - Nitroterm`,
     },
     description: "Powerful terminal application written in Rust",
