@@ -1,6 +1,5 @@
-import { generateSiteMetadata } from "../helpers";
+import { generateSiteMetadata, getBaseUrl } from "../helpers";
 
-// Mock any external dependencies if needed
 jest.mock("next/headers", () => ({
   headers: jest.fn(() => new Map()),
 }));
@@ -20,6 +19,30 @@ describe("Helpers", () => {
 
       expect(metadata.openGraph?.images).toBeDefined();
       expect(Array.isArray(metadata.openGraph?.images)).toBe(true);
+    });
+  });
+
+  describe("getBaseUrl", () => {
+    it("returns correct base URL in development", () => {
+      Object.defineProperty(process.env, "NODE_ENV", {
+        value: "development",
+        configurable: true,
+      });
+      const url = getBaseUrl();
+      expect(url).toContain("localhost");
+    });
+
+    it("returns production URL when deployed", () => {
+      Object.defineProperty(process.env, "NODE_ENV", {
+        value: "production",
+        configurable: true,
+      });
+      Object.defineProperty(process.env, "VERCEL_URL", {
+        value: "myapp.vercel.app",
+        configurable: true,
+      });
+      const url = getBaseUrl();
+      expect(url).toContain("https://");
     });
   });
 });

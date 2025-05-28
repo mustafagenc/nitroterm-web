@@ -80,3 +80,77 @@ describe("DownloadButton", () => {
     });
   });
 });
+
+describe('DownloadButton - Additional Coverage', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('downloads macOS Intel version when selected', async () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+      writable: true,
+    })
+
+    render(<DownloadButton />)
+
+    await waitFor(() => {
+      fireEvent.click(screen.getByRole('button'))
+    })
+
+    await waitFor(() => {
+      const intelButton = screen.getByText('macOS (Intel)')
+      fireEvent.click(intelButton)
+    })
+
+    // Gerçek download URL pattern'ini kontrol et
+    expect(mockOpen).toHaveBeenCalledWith(
+      expect.stringMatching(/nitrokit.*intel|x64|x86_64/i),
+      '_blank'
+    )
+  })
+
+  it('downloads macOS Apple Silicon version when selected', async () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
+      writable: true,
+    })
+
+    render(<DownloadButton />)
+
+    await waitFor(() => {
+      fireEvent.click(screen.getByRole('button'))
+    })
+
+    await waitFor(() => {
+      const appleButton = screen.getByText('macOS (Apple Silicon)')
+      fireEvent.click(appleButton)
+    })
+
+    // Gerçek download URL pattern'ini kontrol et
+    expect(mockOpen).toHaveBeenCalledWith(
+      expect.stringMatching(/nitrokit.*arm64|silicon/i),
+      '_blank'
+    )
+  })
+
+  it('detects and downloads for Linux', async () => {
+    Object.defineProperty(window.navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (X11; Linux x86_64)',
+      writable: true,
+    })
+
+    render(<DownloadButton />)
+
+    await waitFor(() => {
+      const button = screen.getByRole('button')
+      fireEvent.click(button)
+    })
+
+    expect(mockOpen).toHaveBeenCalledWith(
+      expect.stringMatching(/nitrokit.*linux/i),
+      '_blank'
+    )
+  })
+
+})
