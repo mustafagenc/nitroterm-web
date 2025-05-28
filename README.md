@@ -1,4 +1,4 @@
-# Nitroterm Web Application
+# Nitroterm
 
 ```
 ███╗   ██╗██╗████████╗██████╗  ██████╗ ██╗  ██╗██╗████████╗     
