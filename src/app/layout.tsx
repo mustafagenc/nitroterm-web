@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lexend, Fira_Code } from "next/font/google";
-import "../styles/globals.css";
 import { Toaster } from "sonner";
+import { generateSiteMetadata } from "@lib/helpers";
+
+import "@radix-ui/themes/styles.css";
+import "../styles/globals.css";
 
 const lexend = Lexend({
   variable: '--font-lexend',
@@ -16,9 +19,16 @@ const firaCode = Fira_Code({
   style: 'normal',
 });
 
-export const metadata: Metadata = {
-  title: "Nitrokit Terminal",
-  description: "Powerful terminal application written in Rust",
+
+export async function generateMetadata(): Promise<Metadata> {
+  return await generateSiteMetadata();
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
