@@ -20,19 +20,23 @@ export default function CopyToClipboard({ code }: { code: string }) {
     } finally {
       setTimeout(() => {
         setIsCopied(false);
-      }, 3000);
+      }, 2000);
     }
   };
 
   return (
     <button
       onClick={copyToClipboard}
-      className="absolute top-0 right-0 p-2 text-gray-800 transition-colors cursor-pointer"
+      className="absolute top-0 right-0 p-2 text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
     >
       {isCopied ? (
-        <FaCheck size={16} className="text-green-500" />
+        <FaCheck
+          size={16}
+          className="text-green-500"
+          data-testid="check-icon"
+        />
       ) : (
-        <HiOutlineClipboardCopy size={16} />
+        <HiOutlineClipboardCopy size={16} data-testid="clipboard-icon" />
       )}
     </button>
   );
