@@ -2,12 +2,22 @@ import Code from "./code";
 
 export const Usage = () => {
   return (
+    <>
+    <div
+      className="w-full h-px max-w-6xl mx-auto"
+      style={{
+        backgroundImage:
+          "linear-gradient(90deg, rgba(149, 131, 198, 0) 1.46%, rgba(149, 131, 198, 0.6) 40.83%, rgba(149, 131, 198, 0.3) 65.57%, rgba(149, 131, 198, 0) 107.92%)",
+      }}
+    ></div>
     <section
       id="usage"
-      className="text-white min-h-screen flex items-center justify-center border-t border-gray-50/20"
+      className="text-white min-h-screen flex items-center justify-center p-10"
     >
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12">🚀 Usage</h2>
+      <div className="container mx-auto px-6 max-w-6xl">
+        <h2 className="text-4xl font-bold text-center mb-12 text-shadow-md">
+          🚀 Usage
+        </h2>
         <p className=" text-center text-lg mb-8">
           Simple commands for powerful functionality
         </p>
@@ -38,5 +48,6 @@ nitrokit> █`}</Code>
         </div>
       </div>
     </section>
+    </>
   );
 };

@@ -6,15 +6,15 @@ import Code from "./code";
 
 export const Hero = () => {
     return (
-      <div className="relative container mx-auto text-center mt-40">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative container mx-auto text-center mt-20 lg:mt-40 p-10">
+        <div className="max-w-6xl mx-auto">
           <div className="flex justify-center items-center my-8 w-full">
             <div className="mx-auto flex justify-center">
               <NitrokitText />
             </div>
           </div>
 
-          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto font-medium text-shadow-2xs">
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto font-medium text-shadow-xs">
             Powerful terminal application written in Rust that provides
             comprehensive project management functionalities, automatic release
             notes generation, and intelligent dependency management.
@@ -28,14 +28,14 @@ export const Hero = () => {
             </a>
             <a
               href={GITHUB_URL}
-              className="flex items-center gap-3 border border-slate-400 text-slate-300 hover:text-white  hover:bg-slate-800 hover:border-slate-700 px-8 py-4 rounded-full font-semibold text-lg transition-all"
+              className="flex items-center gap-3 border border-white text-white hover:text-white  hover:bg-slate-800 hover:border-slate-700 px-8 py-4 rounded-full font-semibold text-lg transition-all"
             >
               <FaGithub size={30} /> View on GitHub
             </a>
           </div>
         </div>
-        <div className="mt-20 mx-auto text-left max-w-5xl">
-          <Code>{`curl -sSL https://raw.githubusercontent.com/mustafagenc/nitrokit-terminal/refs/heads/main/scripts/install.sh | bash`}</Code>
+        <div className="mt-20 mx-auto text-left max-w-2xl">
+          <Code>{`curl -sSL https://raw.githubusercontent.com/mustafagenc/nitroterm/\nrefs/heads/main/scripts/install.sh | bash`}</Code>
         </div>
       </div>
     );
