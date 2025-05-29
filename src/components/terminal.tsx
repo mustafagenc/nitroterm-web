@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export const Terminal = () => {
   return (
     <div className="order-1 lg:order-2">
